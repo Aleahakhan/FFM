@@ -23,7 +23,7 @@
 											"pm.test(\"Status code is 400\", function () {",
 											"    pm.response.to.have.status(400);",
 											"});",
-											"// validate response time is less than 400 ",
+											"// validate response time  ",
 											"pm.test(\"Response time is less than 600ms\", function () {",
 											"    pm.expect(pm.response.responseTime).to.be.below(600);",
 											"});",
@@ -138,7 +138,7 @@
 					"name": "FFME2-18 Register Company Admin",
 					"item": [
 						{
-							"name": "FFME2-18  Techserve4u admin should be able to register company admin Copy",
+							"name": "FFME2-18  Techserve4u admin should be able to register company admin",
 							"event": [
 								{
 									"listen": "test",
@@ -235,7 +235,7 @@
 							"response": []
 						},
 						{
-							"name": "FFME2-19  Techserve4u admin should be able to register company from admin panel Copy",
+							"name": "FFME2-19  Techserve4u admin should be able to register company from admin panel",
 							"event": [
 								{
 									"listen": "test",
@@ -361,7 +361,7 @@
 					"name": "FFME2-16  Admin Login",
 					"item": [
 						{
-							"name": "FFME2-18  Techserve4u admin should be able to register company admin Copy 2",
+							"name": "FFME2-18  Techserve4u admin should be able to register company admin",
 							"event": [
 								{
 									"listen": "test",
@@ -458,7 +458,7 @@
 							"response": []
 						},
 						{
-							"name": "FFME2-16  Dashboard User (Techserve4u/Company admin) login in admin panel Copy 2",
+							"name": "FFME2-16  Dashboard User (Techserve4u/Company admin) login in admin panel",
 							"event": [
 								{
 									"listen": "test",
@@ -600,7 +600,7 @@
 					"name": "FFME2-17  Admin Authorization",
 					"item": [
 						{
-							"name": "FFME2-16  Dashboard User (Techserve4u/Company admin) login in admin panel Copy",
+							"name": "FFME2-16  Dashboard User (Techserve4u/Company admin) login in admin panel",
 							"event": [
 								{
 									"listen": "test",
@@ -713,7 +713,7 @@
 							"response": []
 						},
 						{
-							"name": "FFME2-17  Techserve4u admin and company admin should be able to authenticate for the admin panel Copy",
+							"name": "FFME2-17  Techserve4u admin and company admin should be able to authenticate for the admin panel",
 							"event": [
 								{
 									"listen": "test",
@@ -840,12 +840,12 @@
 					"name": "FFME2-14  Register app users ",
 					"item": [
 						{
-							"name": "FFME2-16  Dashboard User (Techserve4u/Company admin) login in admin panel Copy 2",
+							"name": "FFME2-16  Dashboard User (Techserve4u/Company admin) login in admin panel",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-										"id": "79e0ddc9-2eec-4c4a-a11a-b183253883e2",
+										"id": "d34c9d8a-ce76-4e8b-9876-5bd2e1dc69d4",
 										"exec": [
 											"// Validate statues code ",
 											"pm.test(\"Status code is 200\", function () {",
@@ -927,7 +927,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n \"email\": \"Aleaha2@email.com\",\n \"password\": \"1asdf234\"\n\n}",
+									"raw": "{\n \"email\": \"Aleaha2@email.com\",\n \"password\": \"adsdifer\"\n\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -952,7 +952,7 @@
 							"response": []
 						},
 						{
-							"name": "FFME2 -14  Company admin should be able to register app user from admin panel Copy",
+							"name": "FFME2 -14  Company admin should be able to register app user from admin panel",
 							"event": [
 								{
 									"listen": "test",
@@ -1025,7 +1025,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\n\"phone_number\": \"2487331339\",\n\n\"company_id\": 179,\n\n\"iso_code\": \"US\",\n\n\"first_name\":\"Aleaha2\",\n\n\"last_name\":\"khan2\",\n\n\"nid\":\"9874628364729374\",\n\n\"designation\":\"QA Guy\",\n\n\"department\":\"Tech\"\n\n}",
+									"raw": "{\n\n\"phone_number\": \"3133680412\",\n\n\"company_id\": 179,\n\n\"iso_code\": \"US\",\n\n\"first_name\":\"Aleaha22\",\n\n\"last_name\":\"khan22\",\n\n\"nid\":\"9874628364729374\",\n\n\"designation\":\"QA Guy\",\n\n\"department\":\"Tech\"\n\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1079,7 +1079,7 @@
 					"name": "FFME2-15  Company admin view users",
 					"item": [
 						{
-							"name": "FFME2-16  Dashboard User (Techserve4u/Company admin) login in admin panel Copy 3",
+							"name": "FFME2-16  Dashboard User (Techserve4u/Company admin) login in admin panel",
 							"event": [
 								{
 									"listen": "test",
@@ -1192,7 +1192,7 @@
 							"response": []
 						},
 						{
-							"name": "FFME2-15  Company admin should be able to view user list Copy",
+							"name": "FFME2-15  Company admin should be able to view user list",
 							"event": [
 								{
 									"listen": "test",
@@ -1628,7 +1628,7 @@
 					"name": "FFME2-13  App users authorization ",
 					"item": [
 						{
-							"name": "FFME2-12  App users should be able login the FFM mobil app Copy",
+							"name": "FFME2-12  App users should be able login the FFM mobil app",
 							"event": [
 								{
 									"listen": "test",
@@ -1741,7 +1741,7 @@
 							"response": []
 						},
 						{
-							"name": "FFME2-13  App user should be able to authenticate Copy",
+							"name": "FFME2-13  App user should be able to authenticate",
 							"event": [
 								{
 									"listen": "test",
@@ -1869,7 +1869,7 @@
 					"name": "FFME2-11  App users view company contact info",
 					"item": [
 						{
-							"name": "FFME2-12  App users should be able login the FFM mobil app Copy",
+							"name": "FFME2-12  App users should be able login the FFM mobil app",
 							"event": [
 								{
 									"listen": "test",
@@ -1982,7 +1982,7 @@
 							"response": []
 						},
 						{
-							"name": "FFME2-11  App user should be able to get all the contact information of their company Copy",
+							"name": "FFME2-11  App user should be able to get all the contact information of their company",
 							"event": [
 								{
 									"listen": "test",
@@ -2203,7 +2203,7 @@
 					"name": "FFME2-21  Admins and users refresh token",
 					"item": [
 						{
-							"name": "FFME2-12  App users should be able login the FFM mobil app Copy",
+							"name": "FFME2-12  App users should be able login the FFM mobil app",
 							"event": [
 								{
 									"listen": "test",
@@ -2316,7 +2316,7 @@
 							"response": []
 						},
 						{
-							"name": "FFME2-21  Techserve4u/Company admin and FFM app user should be able to refresh their authentication token Copy",
+							"name": "FFME2-21  Techserve4u/Company admin and FFM app user should be able to refresh their authentication token",
 							"event": [
 								{
 									"listen": "test",
@@ -2456,7 +2456,7 @@
 					"name": "FFME2-20  Admin Logout",
 					"item": [
 						{
-							"name": "FFME2-16  Dashboard User (Techserve4u/Company admin) login in admin panel Copy",
+							"name": "FFME2-16  Dashboard User (Techserve4u/Company admin) login in admin panel",
 							"event": [
 								{
 									"listen": "test",
@@ -2571,7 +2571,7 @@
 							"response": []
 						},
 						{
-							"name": "FFME2-20  Techserve4u or company admin should be able to logout from the admin panel Copy",
+							"name": "FFME2-20  Techserve4u or company admin should be able to logout from the admin panel",
 							"event": [
 								{
 									"listen": "test",
