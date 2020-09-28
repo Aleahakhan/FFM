@@ -23,7 +23,7 @@
 											"pm.test(\"Status code is 400\", function () {",
 											"    pm.response.to.have.status(400);",
 											"});",
-											"// validate response time ",
+											"// validate response time is less than 400 ",
 											"pm.test(\"Response time is less than 600ms\", function () {",
 											"    pm.expect(pm.response.responseTime).to.be.below(600);",
 											"});",
