@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "6747aba6-fb48-45ce-8fe6-9e7f413bacab",
+		"name": "FFME2-20  Admins logout ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "positive",
+			"item": [
+				{
+					"name": "FFME2-20  Techserve4u or company admin should be able to logout from the admin panel ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5fc53713-aec7-49c8-ace8-b1b4eeb590e6",
+								"exec": [
+									"// Validate statues code ",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"// validate response time ",
+									"pm.test(\"Response time is less than 600ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);",
+									"});",
+									"",
+									"//create variable for json Data",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"Dashboard auth_token\", jsonData.auth_token);",
+									"",
+									"var schema = {",
+									"    \"$schema\": \"http://json-schema.org/draft-07/schema\",",
+									"    \"$id\": \"http://example.com/example.json\",",
+									"    \"type\": \"object\",",
+									"    \"title\": \"The root schema\",",
+									"    \"description\": \"The root schema comprises the entire JSON document.\",",
+									"    \"default\": {},",
+									"    \"examples\": [",
+									"        {",
+									"            \"message\": \"Successfully logged out.\",",
+									"            \"status\": \"success\"",
+									"        }",
+									"    ],",
+									"    \"required\": [",
+									"        \"message\",",
+									"        \"status\"",
+									"    ],",
+									"    \"properties\": {",
+									"        \"message\": {",
+									"            \"$id\": \"#/properties/message\",",
+									"            \"type\": \"string\",",
+									"            \"title\": \"The message schema\",",
+									"            \"description\": \"An explanation about the purpose of this instance.\",",
+									"            \"default\": \"\",",
+									"            \"examples\": [",
+									"                \"Successfully logged out.\"",
+									"            ]",
+									"        },",
+									"        \"status\": {",
+									"            \"$id\": \"#/properties/status\",",
+									"            \"type\": \"string\",",
+									"            \"title\": \"The status schema\",",
+									"            \"description\": \"An explanation about the purpose of this instance.\",",
+									"            \"default\": \"\",",
+									"            \"examples\": [",
+									"                \"success\"",
+									"            ]",
+									"        }",
+									"    },",
+									"    \"additionalProperties\": true",
+									"}",
+									"//Validate Schema for this URL",
+									"tests[\"valid schema\"] = tv4.validate(jsonData, schema);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Dashboard auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/field-force/auth/logout-dashboard-user",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"field-force",
+								"auth",
+								"logout-dashboard-user"
+							]
+						},
+						"description": "\n\n\n\n\n{\n    \"message\": \"Successfully logged out.\",\n    \"status\": \"success\"\n}"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

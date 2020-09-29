@@ -1,0 +1,137 @@
+{
+	"info": {
+		"_postman_id": "598053d8-4bb8-4386-be63-a540e0b1618a",
+		"name": "FFE2-17  Admins authorization ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Positive",
+			"item": [
+				{
+					"name": "FFME2-17  Techserve4u admin and company admin should be able to authenticate for the admin panel ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d4a8ce05-038c-4ad8-b085-38a626f821c8",
+								"exec": [
+									"// Validate statues code ",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"// validate response time ",
+									"pm.test(\"Response time is less than 600ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);",
+									"});",
+									"",
+									"//create variable for json Data",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"Dashboard auth_token\", jsonData.auth_token);",
+									"",
+									"var schema = {",
+									"    \"$schema\": \"http://json-schema.org/draft-07/schema\",",
+									"    \"$id\": \"http://example.com/example.json\",",
+									"    \"type\": \"object\",",
+									"    \"title\": \"The root schema\",",
+									"    \"description\": \"The root schema comprises the entire JSON document.\",",
+									"    \"default\": {},",
+									"    \"examples\": [",
+									"        {",
+									"            \"data\": 349,",
+									"            \"status\": \"success\"",
+									"        }",
+									"    ],",
+									"    \"required\": [",
+									"        \"data\",",
+									"        \"status\"",
+									"    ],",
+									"    \"properties\": {",
+									"        \"data\": {",
+									"            \"$id\": \"#/properties/data\",",
+									"            \"type\": \"integer\",",
+									"            \"title\": \"The data schema\",",
+									"            \"description\": \"An explanation about the purpose of this instance.\",",
+									"            \"default\": 0,",
+									"            \"examples\": [",
+									"                349",
+									"            ]",
+									"        },",
+									"        \"status\": {",
+									"            \"$id\": \"#/properties/status\",",
+									"            \"type\": \"string\",",
+									"            \"title\": \"The status schema\",",
+									"            \"description\": \"An explanation about the purpose of this instance.\",",
+									"            \"default\": \"\",",
+									"            \"examples\": [",
+									"                \"success\"",
+									"            ]",
+									"        }",
+									"    },",
+									"    \"additionalProperties\": true",
+									"}",
+									"//Validate Schema for this URL",
+									"tests[\"valid schema\"] = tv4.validate(jsonData, schema);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Dashboard auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/field-force/auth/authenticate-dashboard-user",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"field-force",
+								"auth",
+								"authenticate-dashboard-user"
+							]
+						},
+						"description": "Objective: Techserve4u admin and company admin should be able to authenticate for the admin panel \n\nSE: Shiblu Ahmed\nPO: Pranto Majumder\nQA: Abidur Aleaha khan\nReviewer:Pranto Majumder\n\nTest Steps:\n1) Select Authorization tab\n2) Select \"Bearer Token\" from drop down\n3) Paste the jwt token generated in \"FFME2-16 Dashboard User (Techserve4u/Company admin) login in admin panel\".\n\nMethod: GET\nExpected Result:\n{\n    \"data\": 360,\n    \"status\": \"success\"\n}\nActual Result:\n{\n    \"data\": 360,\n    \"status\": \"success\"\n}\n\nStatus Code: 200 ok\nTest pass"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "804c730a-a5c3-413a-8f69-39abf89cfa19",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "a7181c83-dd71-469d-bb86-20527d695d81",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

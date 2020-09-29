@@ -1,0 +1,127 @@
+{
+	"info": {
+		"_postman_id": "cd741e5e-b18f-4f4f-bf05-75140b2f89f8",
+		"name": "FFME2-21  Admin and users refresh token ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Positive",
+			"item": [
+				{
+					"name": "FFME2-21  Techserve4u/Company admin and FFM app user should be able to refresh their authentication token ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "836027b2-91ab-4afb-877f-898e6ae1e45a",
+								"exec": [
+									"// Validate statues code ",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"// validate response time ",
+									"pm.test(\"Response time is less than 600ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(600);",
+									"});",
+									"",
+									"//create variable for json Data",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"Dashboard auth_token\", jsonData.auth_token);",
+									"",
+									"var schema = {",
+									"    \"$schema\": \"http://json-schema.org/draft-07/schema\",",
+									"    \"$id\": \"http://example.com/example.json\",",
+									"    \"type\": \"object\",",
+									"    \"title\": \"The root schema\",",
+									"    \"description\": \"The root schema comprises the entire JSON document.\",",
+									"    \"default\": {},",
+									"    \"examples\": [",
+									"        {",
+									"            \"auth_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDE0MzI5NTgsImlhdCI6MTYwMDgyODE1OCwic3ViIjoxNjksIm1vZHVsZXMiOltdLCJ1c2VyX3R5cGUiOiJHZW5lcmFsIiwibmFtZSI6IkFsZWFoYTIga2hhbiIsInBob25lX251bWJlciI6IjU4NjczMzEzMzkiLCJtZW1iZXJfdHlwZSI6M30.UktVetosoLo_vjTYkh2DZ6RFHW5-xre7tCS1TlssBfk\",",
+									"            \"message\": \"Successfully refreshed token.\",",
+									"            \"status\": \"success\"",
+									"        }",
+									"    ],",
+									"    \"required\": [",
+									"        \"auth_token\",",
+									"        \"message\",",
+									"        \"status\"",
+									"    ],",
+									"    \"properties\": {",
+									"        \"auth_token\": {",
+									"            \"$id\": \"#/properties/auth_token\",",
+									"            \"type\": \"string\",",
+									"            \"title\": \"The auth_token schema\",",
+									"            \"description\": \"An explanation about the purpose of this instance.\",",
+									"            \"default\": \"\",",
+									"            \"examples\": [",
+									"                \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDE0MzI5NTgsImlhdCI6MTYwMDgyODE1OCwic3ViIjoxNjksIm1vZHVsZXMiOltdLCJ1c2VyX3R5cGUiOiJHZW5lcmFsIiwibmFtZSI6IkFsZWFoYTIga2hhbiIsInBob25lX251bWJlciI6IjU4NjczMzEzMzkiLCJtZW1iZXJfdHlwZSI6M30.UktVetosoLo_vjTYkh2DZ6RFHW5-xre7tCS1TlssBfk\"",
+									"            ]",
+									"        },",
+									"        \"message\": {",
+									"            \"$id\": \"#/properties/message\",",
+									"            \"type\": \"string\",",
+									"            \"title\": \"The message schema\",",
+									"            \"description\": \"An explanation about the purpose of this instance.\",",
+									"            \"default\": \"\",",
+									"            \"examples\": [",
+									"                \"Successfully refreshed token.\"",
+									"            ]",
+									"        },",
+									"        \"status\": {",
+									"            \"$id\": \"#/properties/status\",",
+									"            \"type\": \"string\",",
+									"            \"title\": \"The status schema\",",
+									"            \"description\": \"An explanation about the purpose of this instance.\",",
+									"            \"default\": \"\",",
+									"            \"examples\": [",
+									"                \"success\"",
+									"            ]",
+									"        }",
+									"    },",
+									"    \"additionalProperties\": true",
+									"}",
+									"//Validate Schema for this URL",
+									"tests[\"valid schema\"] = tv4.validate(jsonData, schema);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{App user auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/field-force/auth/refresh-token",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"field-force",
+								"auth",
+								"refresh-token"
+							]
+						},
+						"description": "Objective: Techserve4u/Company admin and FFM app user should be able to refresh their authentication token\n\nSE: Shiblu Ahmed\nPO: Pranto Majumder\nQA: Abidur Rahman\nReviewer:Pranto Majumder\n\nTest Steps:\n1) Select Authorization tab\n2) Select \"Bearer Token\" from drop down\n3) Paste the jwt token generated in \"FFME2-16  Dashboard User (Techserve4u/Company admin) login in admin panel.\"\nExpected Result:\n    {\n    \"auth_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDEyNTMxNzQsImlhdCI6MTYwMDY0ODM3NCwic3ViIjoxNjksIm1vZHVsZXMiOltdLCJ1c2VyX3R5cGUiOiJHZW5lcmFsIiwibmFtZSI6IkFsZWFoYTIga2hhbiIsInBob25lX251bWJlciI6IjU4NjczMzEzMzkiLCJtZW1iZXJfdHlwZSI6M30.v5UI0_TXBpan9H5jCRK-yzAJBwGioPqijO-fxCwiES0\",\n    \"message\": \"Successfully refreshed token.\",\n    \"status\": \"success\"\n}\nActual Result:\n{\n    \"auth_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDEyNTMxNzQsImlhdCI6MTYwMDY0ODM3NCwic3ViIjoxNjksIm1vZHVsZXMiOltdLCJ1c2VyX3R5cGUiOiJHZW5lcmFsIiwibmFtZSI6IkFsZWFoYTIga2hhbiIsInBob25lX251bWJlciI6IjU4NjczMzEzMzkiLCJtZW1iZXJfdHlwZSI6M30.v5UI0_TXBpan9H5jCRK-yzAJBwGioPqijO-fxCwiES0\",\n    \"message\": \"Successfully refreshed token.\",\n    \"status\": \"success\"\n}\n\nStatus Code: 200 OK\nTest Result: Pass"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
